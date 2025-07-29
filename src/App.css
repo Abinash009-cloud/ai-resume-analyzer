@@ -1,10 +1,46 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-}
+ body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #12121c);
+      color: #f0f0f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      animation: fadeIn 1s ease-in-out;
+    }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    *::selection {
+      background-color: #6c63ff;
+      color: white;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1e1e2f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #6c63ff;
+      border-radius: 10px;
+    }
+
+    a {
+      color: #6c63ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,41 +77,65 @@ body {
   margin-top: 30px;
 }
 
-.upload-section {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
+/* upload  */
 .upload-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px dashed #ccc;
-  padding: 30px;
-  border-radius: 12px;
-  margin-top: 16px;
+  margin: 30px 0;
+}
+
+.upload-area {
+  position: relative;
+  width: 300px;
+  height: 180px;
+  border: 3px dashed #6c63ff;
+  border-radius: 20px;
+  background: #1e1e2f;
+  color: #eee;
+  cursor: pointer;
+  text-align: center;
+  padding: 20px;
+  transition: 0.4s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.upload-area:hover {
+  background: #2e2e44;
+  box-shadow: 0 0 15px #6c63ff99;
+  transform: scale(1.02);
+}
+
+.upload-area input[type='file'] {
+  display: none;
 }
 
 .upload-icon {
   font-size: 40px;
+  color: #6c63ff;
   margin-bottom: 10px;
+  animation: float 2s ease-in-out infinite;
 }
 
-.upload-btn {
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.file-info {
   margin-top: 10px;
-  background: #6c63ff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
+  color: #00e0ff;
+  font-weight: 500;
+  animation: fadeIn 0.4s ease-in-out;
 }
 
-.upload-btn:hover {
-  background: #4d45c0;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .analysis-section {
@@ -122,3 +182,590 @@ ul {
   color: #777;
   font-style: italic;
 }
+
+.file-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.loader {
+  font-style: italic;
+  color: #888;
+}
+
+.skill-bars {
+  margin-top: 10px;
+}
+
+.skill-bar {
+  margin-bottom: 12px;
+}
+
+.bar {
+  position: relative;
+  background: #ddd;
+  height: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fill {
+  background: #6c63ff;
+  height: 100%;
+  transition: width 0.7s ease-in-out;
+}
+
+.percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  color: white;
+}
+
+.job-card {
+  background: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.job-card h4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.skill-bar {
+  margin-bottom: 12px;
+}
+
+.bar {
+  position: relative;
+  background: #ddd;
+  height: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fill {
+  background: #6c63ff;
+  height: 100%;
+  transition: width 0.7s ease-in-out;
+}
+
+.percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  line-height: 20px;
+  font-size: 12px;
+  color: white;
+}
+
+.loader {
+  font-style: italic;
+  color: #888;
+}
+
+.resume-history {
+  background: #2b2b38;
+  padding: 25px;
+  border-radius: 16px;
+  margin-top: 40px;
+  color: #eee;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: slideIn 0.6s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.resume-history h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #6c63ff;
+}
+
+.clear-btn {
+  padding: 6px 14px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.clear-btn:hover {
+  background-color: #e60000;
+  box-shadow: 0 0 10px #ff4d4d66;
+}
+
+.history-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.history-item {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  background: #1e1e2f;
+  transition: transform 0.3s ease;
+  border-left: 4px solid #6c63ff;
+}
+
+.history-item:hover {
+  transform: scale(1.02);
+  background: #26263b;
+}
+
+.file-name {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.skill-list span {
+  color: #00e0ff;
+  font-weight: 500;
+}
+
+
+.clear-btn {
+  background: #ff5757;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark .job-card,
+body.dark .upload-box,
+body.dark .ai-analysis,
+body.dark .resume-history {
+  background: #1e1e1e;
+  color: #f1f1f1;
+  border-color: #444;
+}
+
+.theme-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.loader {
+  text-align: center;
+  padding: 20px;
+  font-style: italic;
+  color: #888;
+  font-size: 16px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #6c63ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  .upload-box,
+  .ai-analysis,
+  .job-card,
+  .resume-history {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .job-list {
+    flex-direction: column;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .auth-btn,
+  .theme-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+.job-matching {
+  margin-top: 20px;
+}
+.job-matching h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.job-card {
+  background: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.job-card h4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.job-card span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+.job-card:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.job-card:hover h4 {
+  color: #333;
+}
+.job-card:hover p {
+  color: #666;
+}
+.job-card:hover span {
+  color: #4d45c0;
+}
+.job-card h4 span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.job-card:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.job-card:hover h4 {
+  color: #333;
+}
+.job-card:hover p {
+  color: #666;
+}
+.job-card:hover span {
+  color: #4d45c0;
+}
+.job-card h4 span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.job-card:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.job-card:hover h4 {
+  color: #333;
+}
+.job-card:hover p {
+  color: #666;
+}
+.job-card:hover span {
+  color: #4d45c0;
+}
+.job-card h4 span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.job-card:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.job-card:hover h4 {
+  color: #333;
+}
+.job-card:hover p {
+  color: #666;
+}
+.job-card:hover span {
+  color: #4d45c0;
+}
+.job-card h4 span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+.job-card p {
+  font-size: 14px;
+  color: #555;
+}
+.job-card:hover {
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.job-card:hover h4 {
+  color: #333;
+}
+.job-card:hover p {
+  color: #666;
+}
+.job-card:hover span {
+  color: #4d45c0;
+}
+
+/* login  */
+/* Login.css */
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@import url("https://use.fontawesome.com/releases/v6.5.1/css/all.css");
+
+.box {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #ff2770 0%,
+    #ff2770 5%,
+    transparent 5%,
+    transparent 40%,
+    #ff2770 50%
+  );
+  filter: drop-shadow(0 15px 50px #000);
+  border-radius: 20px;
+  animation: rotating 4s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotating {
+  0% {
+    --a: 0deg;
+  }
+
+  100% {
+    --a: 360deg;
+  }
+}
+
+.box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #45f3ff 0%,
+    #45f3ff 5%,
+    transparent 5%,
+    transparent 40%,
+    #45f3ff 50%
+  );
+  filter: drop-shadow(0 15px 50px #000);
+  border-radius: 20px;
+  animation: rotating 4s linear infinite;
+  animation-delay: -1s;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  background: #2d2d39;
+  border-radius: 15px;
+  border: 8px solid #25252b;
+}
+
+.box:hover {
+  width: 450px;
+  height: 500px;
+}
+
+.box:hover .login {
+  inset: 40px;
+}
+
+.box:hover .loginBx {
+  transform: translateY(0px);
+}
+
+.login {
+  position: absolute;
+  inset: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  background: #00000033;
+  color: #fff;
+  z-index: 1000;
+  box-shadow: inset 0 10px 20px #00000080;
+  border-bottom: 2px solid #ffffff80;
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.loginBx {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 70%;
+  transform: translateY(126px);
+  transition: 0.5s;
+}
+/* Center only login form when Login component is shown */
+.login-page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* full screen height */
+  width: 100%;
+  background: #25252b;
+}
+
+
+h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+h2 i {
+  color: #ff2770;
+  text-shadow: 0 0 5px #ff2770, 0 0 20px #ff2770;
+}
+
+input {
+  width: 100%;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  color: #fff;
+  background: #0000001a;
+  border: 2px solid #fff;
+  border-radius: 30px;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input[type="submit"] {
+  background: #45f3ff;
+  border: none;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 10px #45f3ff, 0 0 60px #45f3ff;
+}
+
+.group {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.group a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.group a:nth-child(2) {
+  color: #ff2770;
+  font-weight: 600;
+}
+/* loader  */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.loader {
+  background: #222;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #6c63ff;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
