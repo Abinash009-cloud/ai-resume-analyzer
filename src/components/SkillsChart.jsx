@@ -20,15 +20,50 @@ const SkillsChart = ({ skills }) => {
       {
         label: 'Skill Match %',
         data: Object.values(skills),
-        backgroundColor: '#6c63ff',
+        backgroundColor: 'rgba(108, 99, 255, 0.6)',
+        borderColor: '#6c63ff',
+        borderWidth: 2,
+        borderRadius: 6,
+        hoverBackgroundColor: 'rgba(108, 99, 255, 0.8)',
       },
     ],
   };
 
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { color: '#ccc' },
+        grid: { color: '#333' },
+      },
+      x: {
+        ticks: { color: '#ccc' },
+        grid: { color: '#333' },
+      },
+    },
+    plugins: {
+      legend: {
+        labels: {
+          color: '#eee',
+          font: { size: 14 },
+        },
+      },
+      tooltip: {
+        backgroundColor: '#1f1f2f',
+        titleColor: '#fff',
+        bodyColor: '#eee',
+      },
+    },
+  };
+
   return (
-    <div className="skills-chart">
-      <h3>Skills Chart</h3>
-      <Bar data={data} />
+    <div className="skills-chart-container">
+      <h3>📊 Skill Match Overview</h3>
+      <div style={{ height: '300px' }}>
+        <Bar data={data} options={options} />
+      </div>
     </div>
   );
 };
