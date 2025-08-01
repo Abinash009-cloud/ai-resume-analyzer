@@ -2,12 +2,12 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-
 const Sidebar = () => {
   const location = useLocation();
 
   const navItems = [
-    { path: '/dashboard', label: '🏠 Dashboard' },
+    { path: '/', label: '🏡 Home' },                 // ✅ Add this line
+    { path: '/dashboard', label: '📊 Dashboard' },
     { path: '/history', label: '📂 History' },
     { path: '/profile', label: '👤 Profile' },
     { path: '/login', label: '🔐 Login' },

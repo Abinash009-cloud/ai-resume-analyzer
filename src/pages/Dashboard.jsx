@@ -3,13 +3,11 @@ import UploadBox from '../components/UploadBox';
 import ResumePreview from '../components/ResumePreview';
 import AIAnalysis from '../components/AIAnalysis';
 import JobMatch from '../components/JobMatch';
-
 import SkillsChart from '../components/SkillsChart';
 import CareerSuggestions from '../components/CareerSuggestions';
 import ExportPDFButton from '../components/ExportPDFButton';
 import '../App.css';
 import Sidebar from '../components/Sidebar';
-
 
 const Dashboard = () => {
   const [resumeFile, setResumeFile] = useState(null);
@@ -55,38 +53,36 @@ const Dashboard = () => {
   };
 
   return (
-   <div className="app-layout">
-  <Sidebar />
-  {/* <div className="main-content"></div> */}
-    <div className="container">
-      <header className="header">
-        <h1>AI Resume Analyzer</h1>
-        <div>
-          <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? '🌞 Light' : '🌙 Dark'}
-          </button>
-          
-        </div>
-      </header>
+    <div className={`app-layout ${darkMode ? 'dark-mode' : ''}`}>
+      <Sidebar />
+      <div className="container">
+        <header className="header">
+          <h1 className="animated-title">🚀 AI Resume Analyzer</h1>
+          <div>
+            <button className="theme-btn" onClick={() => setDarkMode(!darkMode)}>
+              {darkMode ? '🌞 Light' : '🌙 Dark'}
+            </button>
+          </div>
+        </header>
 
-      <main className="main">
-        <UploadBox onUpload={handleUpload} />
-        {resumeFile && <ResumePreview file={resumeFile} />}
-        {analysisData && (
-          <>
-            <AIAnalysis file={resumeFile} analysis={analysisData} />
-            <SkillsChart skills={analysisData.skills} />
-            <ExportPDFButton file={resumeFile} analysis={analysisData} />
-            <CareerSuggestions skills={analysisData.skills} />
-          </>
-        )}
-        {resumeFile && <ResumePreview file={resumeFile} />}
+        <main className="main animated-fade-in">
+          <UploadBox onUpload={handleUpload} />
 
-        {resumeFile && <JobMatch file={resumeFile} />}
-        
-      </main>
-    </div>
+          {resumeFile && <ResumePreview file={resumeFile} />}
+
+          {analysisData && (
+            <>
+              <AIAnalysis file={resumeFile} analysis={analysisData} />
+              <SkillsChart skills={analysisData.skills} />
+              <ExportPDFButton file={resumeFile} analysis={analysisData} />
+              <CareerSuggestions skills={analysisData.skills} />
+            </>
+          )}
+
+          {resumeFile && <JobMatch file={resumeFile} />}
+        </main>
       </div>
+    </div>
   );
 };
 

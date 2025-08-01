@@ -1,5 +1,5 @@
-// src/pages/History.jsx
 import React, { useEffect, useState } from 'react';
+import Sidebar from '../components/Sidebar';
 import '../App.css';
 
 const History = () => {
@@ -10,36 +10,48 @@ const History = () => {
     if (saved) setHistory(JSON.parse(saved));
   }, []);
 
-  const handleClear = () => {
-    localStorage.removeItem('resumeHistory');
-    setHistory([]);
-  };
-
-  if (!history || history.length === 0) {
+  if (history.length === 0) {
     return (
-      <div className="resume-history">
-        <h3>📂 No Resume History Found</h3>
+      <div className="app-layout">
+        <Sidebar />
+        <div className="history-container">
+          <h2>📂 Resume History</h2>
+          <p>No history found.</p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="resume-history">
-      <div className="resume-history-header">
-        <h3>📂 Resume Upload History</h3>
-        <button className="clear-btn" onClick={handleClear}>🗑 Clear All</button>
-      </div>
+    <div className="app-layout">
+      <Sidebar />
+      <div className="history-container">
+        <div className="resume-history">
+          <div className="resume-history-header">
+            <h2>📂 Resume Upload History</h2>
+            <button
+              className="clear-btn"
+              onClick={() => {
+                localStorage.removeItem('resumeHistory');
+                setHistory([]);
+              }}
+            >
+              🗑 Clear All
+            </button>
+          </div>
 
-      <ul className="history-list">
-        {history.map((item, index) => (
-          <li key={index} className="history-item">
-            <div className="file-name">📄 {item.name}</div>
-            <div className="skill-list">
-              Skills: <span>{Object.keys(item.analysis.skills).join(', ')}</span>
-            </div>
-          </li>
-        ))}
-      </ul>
+          <ul className="history-list">
+            {history.map((item, index) => (
+              <li key={index} className="history-item">
+                <div className="file-name">{item.name}</div>
+                <div className="skill-list">
+                  Skills: <span>{Object.keys(item.analysis.skills).join(', ')}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
